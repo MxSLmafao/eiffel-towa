@@ -1,0 +1,61 @@
+{
+ "id": "second-level",
+ "dir": "frames/second-level-b99e896214",
+ "count": 97,
+ "previewCount": 13,
+ "bytes": {
+  "desktop": 3103990,
+  "mobile": 1774470,
+  "desktop-p": 46848,
+  "mobile-p": 25060
+ },
+ "luma": {
+  "desktop": [
+   199,
+   200,
+   202,
+   202,
+   202,
+   202,
+   203,
+   203,
+   203,
+   203,
+   202,
+   201,
+   198
+  ],
+  "mobile": [
+   173,
+   175,
+   176,
+   176,
+   176,
+   175,
+   175,
+   175,
+   174,
+   174,
+   173,
+   172,
+   169
+  ]
+ },
+ "source": {
+  "clip": "03-second-level.mp4",
+  "fps": 30.0,
+  "sourceFrames": 150,
+  "staticHead": 2,
+  "staticTail": 9,
+  "seam": {
+   "frames": 10,
+   "scale": 1.002,
+   "shift": [
+    0.0,
+    0.0
+   ],
+   "gap": 4.1,
+   "gapAligned": 3.46
+  }
+ }
+}
