@@ -1,0 +1,63 @@
+{
+ "id": "second-level",
+ "dir": "frames/second-level-13314fec9c",
+ "count": 104,
+ "previewCount": 13,
+ "bytes": {
+  "desktop": 2846106,
+  "mobile": 1238482,
+  "desktop-p": 56022,
+  "mobile-p": 23724
+ },
+ "luma": {
+  "desktop": [
+   168,
+   166,
+   164,
+   157,
+   149,
+   136,
+   132,
+   127,
+   122,
+   119,
+   115,
+   118,
+   181
+  ],
+  "mobile": [
+   195,
+   185,
+   169,
+   183,
+   195,
+   195,
+   195,
+   187,
+   175,
+   175,
+   105,
+   34,
+   136
+  ]
+ },
+ "posters": {
+  "poster": {
+   "desktop": "frames/second-level-13314fec9c/poster.webp",
+   "mobile": "frames/second-level-13314fec9c/poster-m.webp",
+   "thumb": "frames/second-level-13314fec9c/poster-t.webp"
+  }
+ },
+ "handoverFrames": 18,
+ "source": {
+  "clip": "03-second-level.mp4",
+  "fps": 24.0,
+  "sourceFrames": 120,
+  "staticHead": 3,
+  "staticTail": 1,
+  "handover": {
+   "type": "dissolve",
+   "frames": 18
+  }
+ }
+}

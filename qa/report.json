@@ -1,0 +1,134 @@
+{
+  "version": "03ffb2ae00",
+  "totalFrames": 772,
+  "bytes": {
+    "desktop": 31435116,
+    "mobile": 13845876,
+    "desktop-p": 487158,
+    "mobile-p": 217662
+  },
+  "flagged": 1,
+  "segments": [
+    {
+      "id": "foundations",
+      "frames": 168,
+      "start": 0,
+      "medianDiff": 2.23,
+      "maxDiff": 17.52,
+      "seamIn": null,
+      "luma": [
+        139,
+        124
+      ],
+      "bytes": {
+        "desktop": 9635964,
+        "mobile": 3539670,
+        "desktop-p": 129114,
+        "mobile-p": 48134
+      },
+      "flags": [
+        {
+          "type": "cut",
+          "frame": 36,
+          "diff": 8.22,
+          "around": 2.73
+        }
+      ]
+    },
+    {
+      "id": "first-level",
+      "frames": 67,
+      "start": 168,
+      "medianDiff": 3.81,
+      "maxDiff": 16.91,
+      "seamIn": 17.05,
+      "luma": [
+        123,
+        150
+      ],
+      "bytes": {
+        "desktop": 2748388,
+        "mobile": 1270284,
+        "desktop-p": 55900,
+        "mobile-p": 22746
+      },
+      "flags": []
+    },
+    {
+      "id": "second-level",
+      "frames": 104,
+      "start": 235,
+      "medianDiff": 2.36,
+      "maxDiff": 7.78,
+      "seamIn": 1.31,
+      "luma": [
+        150,
+        113
+      ],
+      "bytes": {
+        "desktop": 2846106,
+        "mobile": 1238482,
+        "desktop-p": 56022,
+        "mobile-p": 23724
+      },
+      "flags": []
+    },
+    {
+      "id": "upper-shaft",
+      "frames": 133,
+      "start": 339,
+      "medianDiff": 7.18,
+      "maxDiff": 9.76,
+      "seamIn": 2.37,
+      "luma": [
+        113,
+        138
+      ],
+      "bytes": {
+        "desktop": 6319618,
+        "mobile": 3263008,
+        "desktop-p": 114142,
+        "mobile-p": 60680
+      },
+      "flags": []
+    },
+    {
+      "id": "spire",
+      "frames": 150,
+      "start": 472,
+      "medianDiff": 1.01,
+      "maxDiff": 4.5,
+      "seamIn": 1.26,
+      "luma": [
+        138,
+        72
+      ],
+      "bytes": {
+        "desktop": 3897174,
+        "mobile": 1948632,
+        "desktop-p": 53244,
+        "mobile-p": 27862
+      },
+      "flags": []
+    },
+    {
+      "id": "illumination",
+      "frames": 150,
+      "start": 622,
+      "medianDiff": 0.9,
+      "maxDiff": 2.48,
+      "seamIn": 0.99,
+      "luma": [
+        72,
+        62
+      ],
+      "bytes": {
+        "desktop": 5987866,
+        "mobile": 2585800,
+        "desktop-p": 78736,
+        "mobile-p": 34516
+      },
+      "flags": []
+    }
+  ]
+}

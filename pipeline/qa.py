@@ -7,8 +7,8 @@ Reads site/assets/manifest.json and the frames it points to. Writes
   qa/report.json         per-segment numbers and any flags
 
 Flags raised:
-  cut        a frame-to-frame change far above the segment's norm (a jump or pop)
-  seam       the step from one segment's last frame to the next one's first
+  cut        a frame-to-frame change far above its neighbours (a jump or pop)
+  seam       a step between two segments far above the motion on either side
   duplicate  consecutive frames that are identical
   dark/blank a frame with almost no detail
 
@@ -35,21 +35,26 @@ def main():
     OUT.mkdir(exist_ok=True)
     dv, mv = manifest["variants"]["desktop"], manifest["variants"]["mobile"]
     strip_frac = mv["width"] / dv["width"]
-    report, flagged, prev_last = [], 0, None
+    report, flagged, prev_last, prev_tail = [], 0, None, 0.0
+    held = {s['id'] for s in json.loads((ROOT / 'manifest.src.json').read_text())['segments'] if s.get('tailHold')}
     phone_tiles = []
 
     for seg in manifest["segments"]:
         ddir, mdir = ASSETS / seg["dir"] / "desktop", ASSETS / seg["dir"] / "mobile"
         count = seg["count"]
+        seg_holds = seg["id"] in held  # a held last frame repeats on purpose
         thumbs = np.stack([load(ddir / f"{i + 1:04d}.webp", (160, 90)) for i in range(count)])
         diffs = np.abs(thumbs[1:] - thumbs[:-1]).mean(axis=(1, 2, 3))
         median = float(np.median(diffs))
-        limit = max(6 * median, 5.0)
         flags = []
         for i, d in enumerate(diffs):
-            if d > limit:
-                flags.append({"type": "cut", "frame": i + 1, "diff": round(float(d), 2)})
-            elif d < 1e-4:
+            # A cut is a spike against its neighbours. Fast camera moves and
+            # dissolves raise the level for many frames in a row and are not cuts.
+            near = np.concatenate([diffs[max(0, i - 6):i], diffs[i + 1:i + 7]])
+            local = float(np.median(near)) if len(near) else median
+            if d > max(3 * local, 5.0):
+                flags.append({"type": "cut", "frame": i + 1, "diff": round(float(d), 2), "around": round(local, 2)})
+            elif d < 1e-4 and not seg_holds:
                 flags.append({"type": "duplicate", "frame": i + 1})
         for i, t in enumerate(thumbs):
             if t.std() < 3:
@@ -57,8 +62,10 @@ def main():
         seam = None
         if prev_last is not None:
             seam = float(np.abs(thumbs[0] - prev_last).mean())
-            if seam > max(limit, 5.0):
+            after = float(np.median(diffs[:6]))
+            if seam > max(3 * max(after, prev_tail), 5.0):
                 flags.append({"type": "seam", "diff": round(seam, 2)})
+        prev_tail = float(np.median(diffs[-6:]))
         prev_last = thumbs[-1]
         flagged += len(flags)
 

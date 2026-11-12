@@ -2,43 +2,36 @@
   "title": "La Tour Eiffel",
   "subtitle": "Paris, 1887 – 1889",
   "hint": "Scroll to build",
-  "style": {
-    "block": "Stylized low-poly 3D render, faceted flat-shaded geometry, simplified iron lattice made of chunky low-poly beams, warm bronze-brown iron, cream masonry, pale-green lawns, faceted trees, cream low-poly Haussmann buildings, matte materials, soft shadows, cohesive muted Parisian palette of cream, sage, bronze and pale blue.",
-    "motion": "Stylized low-poly 3D animation, flat-shaded faceted geometry. Every piece eases in and settles; nothing pops or appears suddenly. No people, no cranes, no text.",
-    "negative": "photorealistic, text, watermark, logo, people, blurry, noisy"
-  },
-  "generation": {
-    "server": "Higgsfield_MCP",
-    "image": {
-      "tool": "generate_image",
-      "model": "wan2.7-image-pro",
-      "size": "1280*720",
-      "prompt_extend": false
-    },
-    "video": {
-      "tool": "generate_video",
-      "model": "wan3.0-video",
-      "resolution": "720P",
-      "ratio": "16:9",
-      "audio": false,
-      "prompt_extend": false
-    },
-    "hostBase": "https://raw.githubusercontent.com/MxSLmafao/eiffel-towa/claude/gifted-dirac-0ge2c3/assets-src/stills/"
+  "source": {
+    "note": "Six photorealistic clips, supplied as a zip and generated outside this pipeline from the prompts recorded on each segment. They are independent shots (no shared first/last frames), so segments are joined with dissolves.",
+    "format": "1280x720, 24 fps, H.264",
+    "files": {
+      "foundations": "Constructing_limestone_foundatio…_f60ab579.mp4",
+      "first-level": "Base_of_Eiffel_Tower_constructed_647c4768.mp4",
+      "second-level": "Iron_structure_assembly_animation_f6a6b2db.mp4",
+      "upper-shaft": "Eiffel_Tower_assembling_from_air_d188fb88.mp4",
+      "spire": "Eiffel_Tower_completion_at_sunset_63ffcb13.mp4",
+      "illumination": "Eiffel_Tower_lights_up_at_336fda62.mp4"
+    }
   },
   "output": {
-    "fps": 20,
-    "scrollPxPerFrame": 11,
+    "fps": 24,
+    "scrollPxPerFrame": 10,
     "holdEnd": 0.05,
+    "snap": 0,
+    "maxHold": 12,
+    "transition": "dissolve",
+    "dissolve": 18,
     "variants": {
       "desktop": {
         "width": 1280,
         "height": 720,
-        "quality": 60
+        "quality": 52
       },
       "mobile": {
         "width": 448,
         "height": 720,
-        "quality": 62,
+        "quality": 56,
         "maxAspect": 0.64
       }
     },
@@ -46,71 +39,8 @@
       "step": 8,
       "scale": 0.25,
       "quality": 45
-    },
-    "maxHold": 12
-  },
-  "stills": [
-    {
-      "id": "anchor",
-      "role": "style anchor (complete tower, daylight)",
-      "reference": null,
-      "prompt": "Stylized low-poly 3D render of the completed Eiffel Tower in Paris, faceted flat-shaded geometry, visible triangular facets, simplified iron lattice made of chunky low-poly beams, warm bronze-brown iron colour. Three-quarter view from a slightly low angle, the full tower centred in the frame with the whole height visible from base to antenna tip, generous sky above the tip. Clean low-poly diorama of the Champ de Mars: flat pale-green lawns, simple faceted trees, small cream low-poly Haussmann buildings far in the background. Clear soft daylight, pale blue gradient sky with a few faceted clouds, soft shadows, matte materials, cohesive muted Parisian palette of cream, sage, bronze and pale blue. Wide 16:9 cinematic composition, tower occupying the centre third of the frame. No text, no people, no watermark."
-    },
-    {
-      "id": "ref-close-complete",
-      "role": "camera reference (complete tower, closer low angle)",
-      "reference": "anchor",
-      "prompt": "Re-render the same low-poly Eiffel Tower scene from a new camera position: the camera has orbited 45 degrees to the left around the tower and risen slightly, so the tower is now seen corner-on, with one leg pointing toward the viewer and two faces of the lattice visible symmetrically. Camera at about one quarter of the tower's height, looking gently upward. The complete tower from foundation blocks to antenna tip is fully visible and centred in the frame with sky above the tip. Same low-poly faceted style, same bronze-brown iron, same cream foundation blocks, same pale-green lawns, faceted trees and cream Haussmann buildings, same soft daylight and pale blue sky with faceted clouds. No text, no people."
-    },
-    {
-      "id": "ref-golden-complete",
-      "role": "camera reference (complete tower, aerial, golden hour)",
-      "reference": "b6-illumination",
-      "prompt": "Re-render the same low-poly Eiffel Tower scene from a lower camera and at golden hour, with the tower still under construction and unlit. The camera is at about the height of the first platform, a little further back, looking slightly upward at the tower seen corner-on. The tower is built only up to the completed second platform: four legs, first platform, the tapering lattice section and the square second platform with its railing. Everything above the second platform is missing, replaced by open sky; the top of the second platform is flat and open. Plain matte bronze-brown iron with no lights and no glow. Golden-hour light: warm low sun from the left, long soft shadows on the lawns, sky pale blue at the top fading to warm apricot near the horizon, a few faceted clouds tinted peach. Sage lawns, pale stone paths, cream Haussmann buildings, low-poly trees. The tower base and second platform are centred in the frame with generous sky above. No text, no people, no cranes."
-    },
-    {
-      "id": "b0-site",
-      "role": "boundary 0: empty site",
-      "reference": "b1-foundations",
-      "prompt": "Same scene, same camera, same low-poly style, same lighting and background as the reference image, but the four cream stone foundation blocks have not been built yet. Remove the four blocks completely. In their places the pale gravel plot shows four shallow square excavated pits with darker earth inside, each outlined by thin wooden survey stakes with string. The gravel plot, lawns, trees, buildings, sky and clouds stay exactly the same. No stone blocks, no tower, no text, no people."
-    },
-    {
-      "id": "b1-foundations",
-      "role": "boundary 1: foundations complete",
-      "reference": "anchor",
-      "prompt": "Re-render the same low-poly Paris scene before the tower exists, from a new low camera position: the camera sits close to the ground, near the construction site, looking slightly upward across the site toward the open sky. Only the four cream masonry foundation blocks of the Eiffel Tower exist, arranged in a square on a pale gravel plot in the middle of the lawn, with nothing built on them. The four blocks are large in the lower half of the frame, the nearest block close to the camera, and the upper two thirds of the frame is empty pale blue sky with faceted clouds. Same low-poly faceted style, pale-green lawns, faceted trees and cream Haussmann buildings low on the horizon, same soft daylight. No tower, no iron, no text, no people."
-    },
-    {
-      "id": "b2-first-level",
-      "role": "boundary 2: four legs and first platform",
-      "reference": "anchor",
-      "prompt": "Same scene, same low-poly style, same palette, same lighting and same background as the reference image, but the Eiffel Tower is under construction: only the four splayed lattice legs and the first platform exist. Everything above the first platform is removed and replaced by open sky. The four legs rise from the four cream masonry foundation blocks and join at the completed first-level platform with its arches. The unfinished top of the first platform is flat and open. Camera slightly lower and a little closer than the reference, rotated a few degrees to the left around the tower. Tower base centred in the frame. Keep the lawns, low-poly trees, cream Haussmann buildings and faceted clouds. No text, no people, no cranes."
-    },
-    {
-      "id": "b3-second-level",
-      "role": "boundary 3: mid-lattice and second platform",
-      "reference": "ref-close-complete",
-      "prompt": "Same scene, same low-poly style, same palette, same lighting and same background as the reference image, but the Eiffel Tower is under construction: only the lower half exists. The four legs, the first platform, the short tapering lattice section above it and the square second platform with its railing exist. Everything above the second platform is removed and replaced by open sky: no tall upper shaft, no top cabin, no spire, no antenna. The tower stops at the flat open top of the second platform, at about 45 percent of the frame height. The upper half of the frame is empty sky. Keep the foundation blocks, lawns, low-poly trees, cream Haussmann buildings and faceted clouds. No text, no people, no cranes."
-    },
-    {
-      "id": "b4-upper-shaft",
-      "role": "boundary 4: upper shaft, golden hour, aerial",
-      "reference": "ref-golden-complete",
-      "prompt": "Same scene, same aerial camera, same low-poly style, same golden-hour lighting and same background as the reference image, but the Eiffel Tower is still under construction: the top is not built yet. The four legs, the first platform, the second platform and the lower two thirds of the tall tapering upper shaft exist. The shaft ends abruptly in an open unfinished top with four bare lattice columns. The upper third of the shaft, the top cabin, the spire and the antenna are removed and replaced by open sky. Keep the sun, peach low-poly clouds, lawns, paths, trees and Haussmann buildings exactly the same. No text, no people, no cranes."
-    },
-    {
-      "id": "b5-spire",
-      "role": "boundary 5: complete tower, dusk, aerial",
-      "reference": "b6-illumination",
-      "prompt": "Same scene, same aerial camera, same composition and same low-poly style as the reference image, but at dusk just after sunset and with all the lights switched off. The complete Eiffel Tower is unlit: plain matte bronze-brown iron lattice with soft shading, no glow, no golden lights, no beacon. The sky is a dusk gradient: warm peach and rose at the horizon rising through lavender to soft slate blue at the top, no stars. The lawns are muted sage green, the paths pale stone, the Haussmann buildings cream with dark unlit windows, the trees dark sage. Soft, even, low twilight light with gentle long shadows. No text, no people."
-    },
-    {
-      "id": "b6-illumination",
-      "role": "boundary 6: illuminated tower, night, aerial hero",
-      "reference": "anchor",
-      "prompt": "Re-render the same low-poly Eiffel Tower scene as an aerial hero shot at night: the camera is high in the air, above the height of the second platform, looking down at the complete tower at about 30 degrees, seen corner-on. The whole tower from foundation blocks to antenna tip is visible and centred in the frame. Deep indigo night sky with a soft gradient to dusky violet at the horizon and a few faceted stars. The tower is illuminated: warm golden lights glow along every lattice beam, platforms and arches, with a bright beacon at the antenna tip and a soft golden glow on the lawns around the base. Tiny warm window lights in the low-poly cream Haussmann buildings, low-poly trees in dark sage, the Champ de Mars lawns stretching away below. Same low-poly faceted flat-shaded style. No text, no people."
     }
-  ],
+  },
   "segments": [
     {
       "id": "foundations",
@@ -118,20 +48,15 @@
       "parts": [
         "foundations"
       ],
-      "from": "b0-site",
-      "to": "b1-foundations",
       "duration": 7,
       "height": [
         0,
         0
       ],
       "camera": {
-        "from": "low, corner-on, close to the site",
-        "to": "low, corner-on, close to the site",
-        "move": "locked off"
+        "move": "locked off, low"
       },
       "sky": "day",
-      "tone": "ink",
       "focusX": [
         0.5,
         0.5
@@ -141,7 +66,7 @@
         "title": "Foundations",
         "line": "January 1887 · Four masonry piers on the Champ de Mars"
       },
-      "prompt": "Stylized low-poly 3D animation, flat-shaded faceted geometry. Fixed low camera, no camera movement. Construction of four cream stone foundation blocks: large faceted cream stone slabs glide down gently from just above, one after another, and settle softly into each of the four excavated pits, stacking and merging into four solid low masonry blocks. The wooden survey stakes and strings sink smoothly into the gravel and disappear. Every piece eases into place and settles; nothing pops or appears suddenly. The low-poly clouds drift very slowly. Calm, precise, elegant motion. No people, no cranes, no text."
+      "prompt": "Photorealistic cinematic footage, natural daylight. Fixed low camera on a tripod, no camera movement. Construction of four limestone foundation piers: large cut limestone blocks are lowered gently from just above, one after another, and settle softly into each of the four excavated pits, stacking into four solid low masonry piers. The wooden survey stakes and strings sink smoothly into the gravel and disappear. Every block eases into place and settles; nothing pops or appears suddenly. Clouds drift very slowly. Calm, precise, steady motion. No people, no cranes, no vehicles, no text."
     },
     {
       "id": "first-level",
@@ -153,20 +78,15 @@
         "leg-west",
         "first-platform"
       ],
-      "from": "b1-foundations",
-      "to": "b2-first-level",
       "duration": 7,
       "height": [
         0,
         57
       ],
       "camera": {
-        "from": "low, corner-on, close to the site",
-        "to": "low angle, face-on, pulled back",
-        "move": "long pull-back"
+        "move": "close under the arches, then a wide pull-back"
       },
       "sky": "day",
-      "tone": "ink",
       "focusX": [
         0.5,
         0.5
@@ -176,7 +96,21 @@
         "title": "First Level",
         "line": "57 metres · The four legs meet"
       },
-      "prompt": "Stylized low-poly 3D animation, flat-shaded faceted geometry. One continuous, steady dolly-out: the camera travels straight backward and slightly upward for the entire shot, moving far away from the construction site, so the site becomes smaller and smaller and settles low in the centre of the frame under a large open sky. The camera never moves forward and never tilts up. While the camera pulls back, only the base of the Eiffel Tower is built: four bronze-brown iron lattice legs rise from the four cream foundation blocks, chunky low-poly beams gliding in from slightly offset positions and settling into place, the legs leaning inward until the arches close and the square first platform with its railing locks together on top. Construction stops at the first platform: nothing at all is built above it, and its top stays flat, open and empty with only sky above. The shot ends as a wide view of the finished base, small in the frame. Every piece eases in and settles; nothing pops or appears suddenly. Soft daylight, slowly drifting low-poly clouds. No people, no cranes, no text."
+      "ranges": [
+        [
+          0,
+          50
+        ],
+        [
+          138,
+          167
+        ]
+      ],
+      "rangeDissolve": 12,
+      "rangeNote": "Frames 51-137 are skipped: the clip builds well past the first platform there and then shrinks back to it. The wide shot is short, so its last frame is held under the dissolve into the next segment.",
+      "tailHold": 16,
+      "dissolve": 16,
+      "prompt": "Photorealistic cinematic footage, natural daylight. One continuous, steady dolly-out: the camera travels straight backward and slightly upward for the entire shot, moving far away from the construction site, so the site becomes smaller and smaller and settles low in the centre of the frame under a large open sky. The camera never moves forward and never tilts up. While the camera pulls back, only the base of the Eiffel Tower is built: four riveted wrought-iron lattice legs, painted bronze-brown, rise from the four limestone piers, girders gliding in from slightly offset positions and settling into place, the legs leaning inward until the arches close and the square first platform with its railing locks together on top. Construction stops at the first platform: nothing at all is built above it, and its top stays flat, open and empty with only sky above. The shot ends as a wide view of the finished base, small in the frame. Every piece eases in and settles; nothing pops or appears suddenly. No people, no cranes, no vehicles, no text."
     },
     {
       "id": "second-level",
@@ -185,30 +119,30 @@
         "mid-lattice",
         "second-platform"
       ],
-      "from": "b2-first-level",
-      "to": "b3-second-level",
       "duration": 5,
       "height": [
         57,
         115
       ],
       "camera": {
-        "from": "low angle, face-on, pulled back",
-        "to": "low angle, face-on, closer",
-        "move": "slow push-in"
+        "move": "locked off, low angle"
       },
       "sky": "day",
-      "tone": "ink",
       "focusX": [
         0.5,
-        0.51
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.68
       ],
       "caption": {
         "numeral": "III",
         "title": "Second Level",
         "line": "115 metres · The lattice narrows"
       },
-      "prompt": "Stylized low-poly 3D animation, flat-shaded faceted geometry. Very slow, steady dolly-in from a low angle; the squat iron structure grows slightly larger in the frame. A single short second tier is added on top of the flat platform: four short inclined bronze-brown lattice columns glide in from slightly offset positions and settle into place, rising only a little way, braced with cross-beams, and then one small square deck with a railing slides together on top of them and locks in. That is all that happens. The structure stays low, wide and squat with a flat top, and the sky above it stays empty. The arched base stays solid and unchanged. Every piece eases in and settles; nothing pops or appears suddenly. Soft daylight, slowly drifting low-poly clouds. No people, no cranes, no text."
+      "prompt": "Photorealistic cinematic footage, natural daylight. Very slow, steady dolly-in from a low angle; the squat iron structure grows slightly larger in the frame. A single short second tier is added on top of the flat platform: four short inclined riveted iron lattice columns glide in from slightly offset positions and settle into place, rising only a little way, braced with cross-beams, and then one small square deck with a railing slides together on top of them and locks in. That is all that happens. The structure stays low, wide and squat with a flat top, and the sky above it stays empty. The arched base stays solid and unchanged. Every piece eases in and settles; nothing pops or appears suddenly. No people, no cranes, no vehicles, no text."
     },
     {
       "id": "upper-shaft",
@@ -216,26 +150,33 @@
       "parts": [
         "upper-shaft"
       ],
-      "from": "b3-second-level",
-      "to": "b4-upper-shaft",
       "duration": 9,
       "height": [
         115,
         276
       ],
       "camera": {
-        "from": "low angle, face-on, closer",
-        "to": "aerial, corner-on",
-        "move": "crane up with an orbit"
+        "move": "aerial orbit climbing the shaft"
       },
       "sky": "golden",
-      "tone": "ink",
       "focusX": [
-        0.51,
+        0.68,
+        0.72,
+        0.7,
+        0.66,
+        0.58,
+        0.56,
         0.5
       ],
       "caption": null,
-      "prompt": "Stylized low-poly 3D animation, flat-shaded faceted geometry. One continuous, smooth cinematic crane and orbit shot: the camera rises steadily from the low angle near the ground, orbiting around the tower as it climbs, and ends high in the air in an aerial view looking down at the tower corner-on with the Champ de Mars lawns and Haussmann buildings spread out below. During the move, the tall tapering upper shaft of the Eiffel Tower assembles above the second platform: bronze-brown low-poly lattice segments glide in from slightly offset, exploded positions and settle into place one above another, the shaft growing taller and narrower. Every piece eases in and settles; nothing pops or appears suddenly. The light warms gradually from clear daylight to golden hour, the sun low on the left, long soft shadows stretching across the lawns, clouds turning peach. No people, no cranes, no text."
+      "ranges": [
+        [
+          0,
+          150
+        ]
+      ],
+      "rangeNote": "Frames 151-215 are dropped: the clip finishes the cabin and spire there, which the next segment builds.",
+      "prompt": "Photorealistic cinematic drone footage. One continuous, smooth crane and orbit shot: the camera rises steadily from the low angle near the ground, orbiting around the tower as it climbs, and ends high in the air in an aerial view looking down at the tower corner-on, with the Champ de Mars lawns and Haussmann buildings spread out below. During the move, the tall tapering upper shaft of the Eiffel Tower assembles above the second platform: riveted iron lattice segments glide in from slightly offset positions and settle into place one above another, the shaft growing taller and narrower. Every piece eases in and settles; nothing pops or appears suddenly. The light warms gradually from clear daylight to golden hour, the sun low on the left, long soft shadows stretching across the lawns, clouds turning peach. No people, no cranes, no vehicles, no text."
     },
     {
       "id": "spire",
@@ -245,20 +186,15 @@
         "spire",
         "antenna"
       ],
-      "from": "b4-upper-shaft",
-      "to": "b5-spire",
       "duration": 7,
       "height": [
         276,
         330
       ],
       "camera": {
-        "from": "aerial, corner-on",
-        "to": "aerial, corner-on",
-        "move": "locked off"
+        "move": "locked off, aerial"
       },
       "sky": "dusk",
-      "tone": "ink",
       "focusX": [
         0.5,
         0.5
@@ -268,7 +204,7 @@
         "title": "Spire",
         "line": "March 1889 · The summit is reached"
       },
-      "prompt": "Stylized low-poly 3D animation, flat-shaded faceted geometry. Fixed aerial camera, perfectly steady, no camera movement. The Eiffel Tower is almost finished: its four legs, both platforms and the whole tall lattice shaft are already built and stay completely solid and unchanged for the entire shot. Nothing is removed, nothing shrinks, nothing is rebuilt. Only three small pieces are added at the very tip of the tower, one after another: first the small top cabin glides down from just above and settles onto the open top of the shaft, then the slender spire settles onto the cabin, then the thin antenna settles onto the spire. Each piece eases in and settles; nothing pops or appears suddenly. Meanwhile the sun sinks slowly below the horizon on the left and the sky shifts smoothly from golden hour to dusk: peach and rose at the horizon, lavender and slate blue above. The peach low-poly clouds drift away and fade out. The light on the lawns and buildings cools and dims gently. No lights switch on. No people, no cranes, no text."
+      "prompt": "Photorealistic cinematic aerial footage. Fixed aerial camera, perfectly steady, no camera movement. The Eiffel Tower is almost finished: its four legs, both platforms and the whole tall lattice shaft are already built and stay completely solid and unchanged for the entire shot. Nothing is removed, nothing shrinks, nothing is rebuilt. Only three small pieces are added at the very tip of the tower, one after another: first the small top cabin is lowered from just above and settles onto the open top of the shaft, then the slender spire settles onto the cabin, then the thin antenna settles onto the spire. Each piece eases in and settles; nothing pops or appears suddenly. Meanwhile the sun sinks slowly below the horizon on the left and the sky shifts smoothly from golden hour to dusk: peach and rose at the horizon, lavender and slate blue above. The clouds drift away and thin out. The light on the lawns and buildings cools and dims gently. No lights switch on. No people, no cranes, no vehicles, no text."
     },
     {
       "id": "illumination",
@@ -276,20 +212,15 @@
       "parts": [
         "illumination"
       ],
-      "from": "b5-spire",
-      "to": "b6-illumination",
       "duration": 7,
       "height": [
         330,
         330
       ],
       "camera": {
-        "from": "aerial, corner-on",
-        "to": "aerial, corner-on",
-        "move": "locked off"
+        "move": "locked off, aerial"
       },
       "sky": "night",
-      "tone": "cream",
       "focusX": [
         0.5,
         0.5
@@ -299,7 +230,7 @@
         "title": "Illumination",
         "line": "Nightfall · La Ville Lumière"
       },
-      "prompt": "Stylized low-poly 3D animation, flat-shaded faceted geometry. Fixed aerial camera, perfectly steady, no camera movement. Night falls over Paris and the Eiffel Tower lights up. The dusk sky deepens smoothly to deep indigo, with a faint violet glow at the horizon, and a few small stars fade in. Warm golden lights switch on progressively along the tower from the base upward: first the four legs and arches glow, then the first platform, the second platform, the tall shaft, and finally a bright beacon ignites at the antenna tip. A soft golden glow spreads across the plaza beneath the tower. Small warm lights come on in the windows of the Haussmann buildings. The geometry of the tower and city stays perfectly unchanged; only the light changes, smoothly and gradually. No people, no text."
+      "prompt": "Photorealistic cinematic aerial footage. Fixed aerial camera, perfectly steady, no camera movement. Night falls over Paris and the Eiffel Tower lights up. The dusk sky deepens smoothly to deep indigo, with a faint violet glow at the horizon, and a few stars fade in. Warm golden floodlights switch on progressively along the tower from the base upward: first the four legs and arches glow, then the first platform, the second platform, the tall shaft, and finally a bright beacon ignites at the antenna tip. A soft golden glow spreads across the plaza beneath the tower. Warm lights come on in the windows of the Haussmann buildings and along the paths. The geometry of the tower and city stays perfectly unchanged; only the light changes, smoothly and gradually. No people, no vehicles, no text."
     }
   ]
 }

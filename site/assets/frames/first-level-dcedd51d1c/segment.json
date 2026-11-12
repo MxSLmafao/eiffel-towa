@@ -1,0 +1,63 @@
+{
+ "id": "first-level",
+ "dir": "frames/first-level-dcedd51d1c",
+ "count": 67,
+ "previewCount": 9,
+ "bytes": {
+  "desktop": 2748388,
+  "mobile": 1270284,
+  "desktop-p": 55900,
+  "mobile-p": 22746
+ },
+ "luma": {
+  "desktop": [
+   130,
+   122,
+   126,
+   153,
+   206,
+   208,
+   208,
+   197,
+   172
+  ],
+  "mobile": [
+   110,
+   126,
+   124,
+   153,
+   198,
+   199,
+   200,
+   199,
+   196
+  ]
+ },
+ "posters": {
+  "poster": {
+   "desktop": "frames/first-level-dcedd51d1c/poster.webp",
+   "mobile": "frames/first-level-dcedd51d1c/poster-m.webp",
+   "thumb": "frames/first-level-dcedd51d1c/poster-t.webp"
+  }
+ },
+ "handoverFrames": 16,
+ "source": {
+  "clip": "02-first-level.mp4",
+  "fps": 24.0,
+  "sourceFrames": 168,
+  "ranges": [
+   [
+    0,
+    50
+   ],
+   [
+    138,
+    167
+   ]
+  ],
+  "handover": {
+   "type": "dissolve",
+   "frames": 16
+  }
+ }
+}

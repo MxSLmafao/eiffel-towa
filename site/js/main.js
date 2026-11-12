@@ -47,13 +47,12 @@ function captionMarkup(caption) {
 function showStill(manifest) {
   document.body.classList.remove('is-loading');
   document.body.classList.add('is-still');
-  const finale = manifest.posters[manifest.finale];
-  $('still-hero-mobile').srcset = ASSETS + finale.mobile;
-  $('still-hero').src = ASSETS + finale.desktop;
+  $('still-hero-mobile').srcset = ASSETS + manifest.finale.mobile;
+  $('still-hero').src = ASSETS + manifest.finale.desktop;
   $('moments').innerHTML = manifest.segments
     .filter((seg) => seg.caption)
     .map((seg) => `<li class="moment">
-        <img src="${ASSETS}${manifest.posters[seg.poster].thumb}" alt="" loading="lazy" width="480" height="270">
+        <img src="${ASSETS}${seg.poster.thumb}" alt="" loading="lazy" width="480" height="270">
         ${captionMarkup(seg.caption)}
       </li>`)
     .join('');
@@ -144,8 +143,7 @@ function startBuild(manifest) {
 
     // Loading is part of the scene: the empty Champ de Mars sharpens into view
     // while the rule beneath the date draws itself in.
-    const opening = manifest.posters[manifest.opening];
-    poster.src = ASSETS + (variant === 'mobile' ? opening.mobile : opening.desktop);
+    poster.src = ASSETS + (variant === 'mobile' ? manifest.opening.mobile : manifest.opening.desktop);
     poster.decode().catch(() => {}).then(() => poster.classList.add('is-in'));
 
     const loading = seq;

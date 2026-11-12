@@ -1,0 +1,84 @@
+{
+ "id": "foundations",
+ "dir": "frames/foundations-4187b8c311",
+ "count": 168,
+ "previewCount": 21,
+ "bytes": {
+  "desktop": 9635964,
+  "mobile": 3539670,
+  "desktop-p": 129114,
+  "mobile-p": 48134
+ },
+ "luma": {
+  "desktop": [
+   141,
+   140,
+   140,
+   139,
+   131,
+   142,
+   143,
+   143,
+   143,
+   143,
+   131,
+   140,
+   140,
+   140,
+   140,
+   139,
+   138,
+   130,
+   135,
+   133,
+   139
+  ],
+  "mobile": [
+   204,
+   204,
+   200,
+   181,
+   204,
+   204,
+   204,
+   204,
+   161,
+   130,
+   204,
+   204,
+   204,
+   204,
+   204,
+   200,
+   201,
+   204,
+   204,
+   204,
+   174
+  ]
+ },
+ "posters": {
+  "opening": {
+   "desktop": "frames/foundations-4187b8c311/opening.webp",
+   "mobile": "frames/foundations-4187b8c311/opening-m.webp",
+   "thumb": "frames/foundations-4187b8c311/opening-t.webp"
+  },
+  "poster": {
+   "desktop": "frames/foundations-4187b8c311/poster.webp",
+   "mobile": "frames/foundations-4187b8c311/poster-m.webp",
+   "thumb": "frames/foundations-4187b8c311/poster-t.webp"
+  }
+ },
+ "handoverFrames": 18,
+ "source": {
+  "clip": "01-foundations.mp4",
+  "fps": 24.0,
+  "sourceFrames": 168,
+  "staticHead": 6,
+  "staticTail": 3,
+  "handover": {
+   "type": "dissolve",
+   "frames": 18
+  }
+ }
+}

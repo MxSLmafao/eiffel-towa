@@ -10,7 +10,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { background: #b9cad1; -webkit-text-size-adjust: 100%; }
+html { background: #b3c4d0; -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
@@ -37,7 +37,7 @@ ol { list-style: none; }
   height: 100vh; height: 100lvh;
   overflow: hidden;
   /* The sky of the opening frame, so the first paint already belongs to the scene. */
-  background: linear-gradient(#9db5c3 0%, #c5d6dc 46%, #e3e9df 61%, #cdd6a8 62%, #d9dfb8 100%);
+  background: linear-gradient(#b3c4d0 0%, #c8d1d3 16%, #c5c9c7 35%, #90897b 39%, #6c665d 62%, #6d675d 100%);
 }
 
 .canvas, .poster {
@@ -63,6 +63,7 @@ ol { list-style: none; }
 .overlay {
   --fg: var(--ink);
   --halo: rgba(248, 241, 226, 0.6);
+  --mist: rgba(248, 241, 226, 0.62);
   position: absolute; inset: 0 0 auto 0;
   height: 100vh; height: 100svh;
   color: var(--fg);
@@ -72,6 +73,7 @@ ol { list-style: none; }
 .overlay[data-tone='cream'] {
   --fg: var(--cream);
   --halo: rgba(10, 12, 34, 0.55);
+  --mist: rgba(10, 12, 34, 0.5);
 }
 
 .eyebrow, .caption__numeral, .caption__line, .progress__height, .hint {
@@ -116,12 +118,22 @@ ol { list-style: none; }
   position: absolute;
   left: var(--edge); top: 36%;
   max-width: min(30vw, 420px);
+  isolation: isolate; /* keeps the mist behind the text but above the frame */
   opacity: 0;
   transform: translateY(14px);
   transition: opacity 0.75s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
   text-shadow: 0 0 26px var(--halo), 0 0 3px var(--halo);
 }
 .caption.is-on { opacity: 1; transform: none; }
+/* Photographic frames have no guaranteed clear sky, so each caption carries a
+   soft mist in the opposite tone to stay readable over stone or ironwork. */
+.caption::before {
+  content: ''; position: absolute; z-index: -1;
+  inset: -34px -70px -38px -56px;
+  background: radial-gradient(ellipse at 40% 50%, var(--mist) 0%, var(--mist) 22%, transparent 70%);
+  filter: blur(10px);
+  transition: background 0.8s ease;
+}
 .caption__numeral {
   display: flex; align-items: center; gap: 14px;
   font-size: 0.7rem; letter-spacing: 0.34em;
