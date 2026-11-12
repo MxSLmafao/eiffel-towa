@@ -1,0 +1,11 @@
+{
+  "name": "eiffel-towa",
+  "private": true,
+  "description": "Scroll to build the Eiffel Tower: a pinned, scroll-scrubbed frame sequence.",
+  "scripts": {
+    "dev": "python3 -m http.server 5173 --directory site",
+    "assets:plan": "python3 pipeline/plan.py",
+    "assets:build": "python3 pipeline/build.py",
+    "assets:qa": "python3 pipeline/qa.py"
+  }
+}

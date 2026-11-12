@@ -1,0 +1,263 @@
+:root {
+  --ink: #231a12;
+  --cream: #f8f1e2;
+  --gold: #eab95a;
+  --night: #0e1230;
+  --display: 'Cormorant Garamond', 'Cormorant', Garamond, 'Times New Roman', serif;
+  --label: 'Jost', 'Futura', 'Century Gothic', system-ui, sans-serif;
+  --edge: clamp(20px, 5.5vw, 92px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { background: #b9cad1; -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--label);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: none;
+}
+
+h1, h2, p, ol, figure { margin: 0; padding: 0; }
+ol { list-style: none; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
+/* ---------- The pinned stage ---------- */
+
+.build { position: relative; height: var(--build-height, 1000vh); }
+
+.stage {
+  position: sticky; top: 0;
+  height: 100vh; height: 100lvh;
+  overflow: hidden;
+  /* The sky of the opening frame, so the first paint already belongs to the scene. */
+  background: linear-gradient(#9db5c3 0%, #c5d6dc 46%, #e3e9df 61%, #cdd6a8 62%, #d9dfb8 100%);
+}
+
+.canvas, .poster {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  display: block;
+}
+
+.poster {
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s ease, filter 1.4s ease, transform 2.2s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.poster.is-in { opacity: 1; }
+.is-loading .poster { filter: blur(9px); transform: scale(1.045); }
+.poster.is-out { opacity: 0; }
+
+.canvas { opacity: 0; transition: opacity 0.6s ease; }
+.canvas.is-in { opacity: 1; }
+
+/* ---------- Overlay ---------- */
+
+.overlay {
+  --fg: var(--ink);
+  --halo: rgba(248, 241, 226, 0.6);
+  position: absolute; inset: 0 0 auto 0;
+  height: 100vh; height: 100svh;
+  color: var(--fg);
+  pointer-events: none;
+  transition: color 0.8s ease;
+}
+.overlay[data-tone='cream'] {
+  --fg: var(--cream);
+  --halo: rgba(10, 12, 34, 0.55);
+}
+
+.eyebrow, .caption__numeral, .caption__line, .progress__height, .hint {
+  font-family: var(--label);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+/* Title: sits in the open sky of the opening frame and lifts away on scroll. */
+.title {
+  position: absolute; left: 0; right: 0; top: 15%;
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center;
+  padding: 0 24px;
+  opacity: var(--title-opacity, 1);
+  transform: translateY(calc((1 - var(--title-opacity, 1)) * -18px));
+  text-shadow: 0 0 28px var(--halo);
+}
+.title h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(3rem, 8.2vw, 7.25rem);
+  line-height: 0.95;
+  letter-spacing: -0.012em;
+}
+.title h1 em { font-style: italic; letter-spacing: -0.02em; }
+.eyebrow { font-size: clamp(0.66rem, 0.9vw, 0.8rem); letter-spacing: 0.36em; padding-left: 0.36em; }
+
+/* The rule under the eyebrow doubles as the loading indicator: it draws in as frames arrive. */
+.title__rule {
+  display: block;
+  width: clamp(56px, 7vw, 96px); height: 1px;
+  margin: 18px 0 16px;
+  background: currentColor;
+  transform-origin: left center;
+  transform: scaleX(var(--load, 0));
+  transition: transform 0.5s ease;
+}
+
+/* Milestone captions */
+.caption {
+  position: absolute;
+  left: var(--edge); top: 36%;
+  max-width: min(30vw, 420px);
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.75s ease, transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  text-shadow: 0 0 26px var(--halo), 0 0 3px var(--halo);
+}
+.caption.is-on { opacity: 1; transform: none; }
+.caption__numeral {
+  display: flex; align-items: center; gap: 14px;
+  font-size: 0.7rem; letter-spacing: 0.34em;
+}
+.caption__numeral::after {
+  content: ''; width: 44px; height: 1px; background: currentColor; opacity: 0.7;
+}
+.caption__title {
+  font-family: var(--display);
+  font-style: italic; font-weight: 500;
+  font-size: clamp(2.3rem, 4.4vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 12px 0 14px;
+}
+.caption__line { font-size: clamp(0.66rem, 0.82vw, 0.76rem); letter-spacing: 0.2em; line-height: 1.7; opacity: 0.86; }
+
+/* Progress: a rail that fills upward, like the tower. */
+.progress {
+  position: absolute;
+  right: clamp(16px, 3.2vw, 52px); top: 50%;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 14px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.is-ready .progress { opacity: 1; }
+.progress__rail {
+  position: relative;
+  width: 1px; height: min(36vh, 300px);
+  background: color-mix(in srgb, currentColor 28%, transparent);
+}
+.progress__fill {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 100%;
+  background: currentColor;
+  transform-origin: bottom center;
+  transform: scaleY(var(--p, 0));
+}
+.progress__dot {
+  position: absolute; left: 50%; bottom: calc(var(--p, 0) * 100%);
+  width: 7px; height: 7px; margin: 0 0 -3.5px -3.5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.progress__tick {
+  position: absolute; left: -4px; width: 9px; height: 1px;
+  background: currentColor; opacity: 0.55;
+  transition: opacity 0.5s ease;
+}
+.progress__tick.is-passed { opacity: 1; }
+.progress__height {
+  font-size: 0.64rem; letter-spacing: 0.22em; padding-left: 0.22em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  text-shadow: 0 0 16px var(--halo);
+}
+
+/* Scroll hint: sits under the title, in the same open sky. */
+.hint {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+  margin-top: clamp(26px, 5.5vh, 60px);
+  font-size: 0.68rem; letter-spacing: 0.38em; padding-left: 0.38em;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.hint.is-on { opacity: 1; }
+.hint__line {
+  width: 1px; height: 34px; background: currentColor;
+  transform-origin: top center;
+  animation: hint 2.4s cubic-bezier(0.6, 0, 0.3, 1) infinite;
+}
+@keyframes hint {
+  0% { transform: scaleY(0); opacity: 0; }
+  35% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1) translateY(12px); opacity: 0; }
+}
+
+/* Portrait phones: the tower fills the width, so captions take the sky to its left. */
+@media (max-aspect-ratio: 64/100), (max-width: 640px) {
+  .title { top: 11%; }
+  .caption { left: 20px; top: 10.5%; max-width: 37vw; }
+  .caption__numeral { font-size: 0.6rem; gap: 10px; }
+  .caption__numeral::after { width: 28px; }
+  .caption__title { font-size: clamp(1.5rem, 6.6vw, 2.2rem); margin: 8px 0 9px; }
+  .caption__line { font-size: 0.58rem; letter-spacing: 0.16em; line-height: 1.75; }
+  .progress { right: 14px; }
+  .progress__rail { height: min(26vh, 200px); }
+}
+
+/* ---------- Still presentation (reduced motion / fallback) ---------- */
+
+.still { background: var(--night); color: var(--cream); }
+.still[hidden] { display: none; }
+.still__hero { position: relative; height: 100vh; height: 100svh; overflow: hidden; }
+.still__hero img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.still__hero::after {
+  content: ''; position: absolute; inset: auto 0 0 0; height: 46%;
+  background: linear-gradient(transparent, rgba(14, 18, 48, 0.72) 62%, var(--night));
+}
+/* Bottom-left, clear of the tower, over the darkened foreground. */
+.title--still {
+  top: auto; right: auto; left: var(--edge); bottom: clamp(28px, 7%, 72px);
+  align-items: flex-start; text-align: left; padding: 0;
+  opacity: 1; transform: none; color: var(--cream);
+  text-shadow: 0 0 30px rgba(10, 12, 34, 0.7); z-index: 1;
+}
+.title--still h1 { font-size: clamp(2.6rem, 6vw, 5.5rem); }
+.title--still .title__rule { transform: none; }
+
+.moments {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+  gap: clamp(18px, 2.4vw, 36px);
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 72px) var(--edge) clamp(56px, 8vw, 120px);
+}
+.moment img {
+  width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block;
+  border-radius: 2px;
+}
+.moment .caption__numeral { margin-top: 18px; color: var(--gold); }
+.moment .caption__title { font-size: clamp(1.7rem, 2.4vw, 2.2rem); margin: 8px 0 8px; }
+.moment .caption__line { opacity: 0.74; }
+
+@media (min-width: 1080px) {
+  .moments { grid-template-columns: repeat(5, 1fr); }
+}
+
+.is-still .build { display: none; }
+
+.noscript {
+  min-height: 100vh; display: grid; place-items: center; padding: 24px; text-align: center;
+  font-family: var(--display); font-size: 1.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition-duration: 0.01ms !important; }
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>La Tour Eiffel — Scroll to build</title>
+  <meta name="description" content="Scroll to build the Eiffel Tower, from its foundations on the Champ de Mars to its illumination at night.">
+  <meta name="theme-color" content="#a9bfca">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" href="assets/manifest.json" as="fetch" crossorigin>
+</head>
+<body class="is-loading">
+
+  <!-- The scroll build: one tall section, one pinned stage. Scroll is the timeline. -->
+  <main class="build" id="build">
+    <div class="stage" id="stage">
+      <img class="poster" id="poster" alt="" decoding="async">
+      <canvas class="canvas" id="canvas" aria-hidden="true"></canvas>
+
+      <div class="overlay" id="overlay" data-tone="ink">
+        <header class="title" id="title">
+          <p class="eyebrow" id="subtitle">Paris, 1887 – 1889</p>
+          <span class="title__rule" id="load-rule" aria-hidden="true"></span>
+          <h1>La Tour <em>Eiffel</em></h1>
+          <p class="hint" id="hint" aria-hidden="true">
+            <span id="hint-text">Scroll to build</span>
+            <span class="hint__line"></span>
+          </p>
+        </header>
+
+        <div class="captions" id="captions"></div>
+
+        <div class="progress" id="progress" aria-hidden="true">
+          <div class="progress__rail" id="rail">
+            <span class="progress__fill" id="fill"></span>
+            <span class="progress__dot" id="dot"></span>
+          </div>
+          <p class="progress__height"><span id="height">0</span> m</p>
+        </div>
+      </div>
+    </div>
+
+    <ol class="sr-only" id="outline" aria-label="Stages of the build"></ol>
+  </main>
+
+  <!-- Reduced motion, or no frame support: the finished tower, presented still. -->
+  <section class="still" id="still" hidden>
+    <figure class="still__hero">
+      <picture>
+        <source id="still-hero-mobile" media="(max-aspect-ratio: 64/100)">
+        <img id="still-hero" alt="The completed Eiffel Tower, illuminated in gold against a night sky, in a low-poly style">
+      </picture>
+      <figcaption class="title title--still">
+        <p class="eyebrow">Paris, 1887 – 1889</p>
+        <span class="title__rule" aria-hidden="true"></span>
+        <h1>La Tour <em>Eiffel</em></h1>
+      </figcaption>
+    </figure>
+    <ol class="moments" id="moments"></ol>
+  </section>
+
+  <noscript>
+    <style>.build { display: none; }</style>
+    <p class="noscript">La Tour Eiffel — this page builds the tower as you scroll, which needs JavaScript.</p>
+  </noscript>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
