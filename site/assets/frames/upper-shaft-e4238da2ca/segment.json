@@ -1,0 +1,75 @@
+{
+ "id": "upper-shaft",
+ "dir": "frames/upper-shaft-e4238da2ca",
+ "count": 133,
+ "previewCount": 17,
+ "bytes": {
+  "desktop": 6319618,
+  "mobile": 3263008,
+  "desktop-p": 114142,
+  "mobile-p": 60680
+ },
+ "luma": {
+  "desktop": [
+   227,
+   223,
+   216,
+   217,
+   225,
+   229,
+   228,
+   230,
+   231,
+   230,
+   233,
+   227,
+   214,
+   201,
+   188,
+   185,
+   212
+  ],
+  "mobile": [
+   123,
+   112,
+   88,
+   82,
+   83,
+   69,
+   64,
+   60,
+   53,
+   50,
+   54,
+   67,
+   85,
+   99,
+   126,
+   158,
+   169
+  ]
+ },
+ "posters": {
+  "poster": {
+   "desktop": "frames/upper-shaft-e4238da2ca/poster.webp",
+   "mobile": "frames/upper-shaft-e4238da2ca/poster-m.webp",
+   "thumb": "frames/upper-shaft-e4238da2ca/poster-t.webp"
+  }
+ },
+ "handoverFrames": 18,
+ "source": {
+  "clip": "04-upper-shaft.mp4",
+  "fps": 24.0,
+  "sourceFrames": 216,
+  "ranges": [
+   [
+    0,
+    150
+   ]
+  ],
+  "handover": {
+   "type": "dissolve",
+   "frames": 18
+  }
+ }
+}

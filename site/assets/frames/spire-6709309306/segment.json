@@ -1,0 +1,75 @@
+{
+ "id": "spire",
+ "dir": "frames/spire-6709309306",
+ "count": 150,
+ "previewCount": 19,
+ "bytes": {
+  "desktop": 3897174,
+  "mobile": 1948632,
+  "desktop-p": 53244,
+  "mobile-p": 27862
+ },
+ "luma": {
+  "desktop": [
+   222,
+   221,
+   219,
+   217,
+   214,
+   211,
+   207,
+   204,
+   202,
+   200,
+   198,
+   196,
+   195,
+   193,
+   192,
+   191,
+   190,
+   171,
+   110
+  ],
+  "mobile": [
+   168,
+   163,
+   161,
+   164,
+   165,
+   162,
+   159,
+   156,
+   153,
+   151,
+   149,
+   148,
+   146,
+   144,
+   142,
+   140,
+   138,
+   126,
+   91
+  ]
+ },
+ "posters": {
+  "poster": {
+   "desktop": "frames/spire-6709309306/poster.webp",
+   "mobile": "frames/spire-6709309306/poster-m.webp",
+   "thumb": "frames/spire-6709309306/poster-t.webp"
+  }
+ },
+ "handoverFrames": 18,
+ "source": {
+  "clip": "05-spire.mp4",
+  "fps": 24.0,
+  "sourceFrames": 168,
+  "staticHead": 3,
+  "staticTail": 6,
+  "handover": {
+   "type": "dissolve",
+   "frames": 18
+  }
+ }
+}
