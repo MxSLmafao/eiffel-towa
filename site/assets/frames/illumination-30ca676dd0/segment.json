@@ -1,0 +1,61 @@
+{
+ "id": "illumination",
+ "dir": "frames/illumination-30ca676dd0",
+ "count": 137,
+ "previewCount": 18,
+ "bytes": {
+  "desktop": 5430440,
+  "mobile": 2910836,
+  "desktop-p": 66176,
+  "mobile-p": 31784
+ },
+ "luma": {
+  "desktop": [
+   143,
+   143,
+   141,
+   140,
+   135,
+   130,
+   123,
+   115,
+   106,
+   99,
+   91,
+   84,
+   79,
+   74,
+   69,
+   65,
+   62,
+   58
+  ],
+  "mobile": [
+   118,
+   117,
+   115,
+   113,
+   107,
+   99,
+   86,
+   75,
+   63,
+   56,
+   50,
+   44,
+   41,
+   36,
+   32,
+   29,
+   26,
+   23
+  ]
+ },
+ "source": {
+  "clip": "06-illumination.mp4",
+  "fps": 30.0,
+  "sourceFrames": 210,
+  "staticHead": 13,
+  "staticTail": 4
+ }
+}
